@@ -1,0 +1,41 @@
+[
+    {
+        "model": "gameraterapi.game",
+        "pk": 1,
+        "fields": {
+            "title": "Monopoly",
+            "description": "The famous capitalist board game",
+            "designer": "Hasbro",
+            "year_released": 1900,
+            "number_of_players": 4,
+            "duration": 60,
+            "age_rec": 7
+        }
+    },
+    {
+        "model": "gameraterapi.game",
+        "pk": 2,
+        "fields": {
+            "title": "Pacman",
+            "description": "Classic Video game",
+            "designer": "Nameco",
+            "year_released": "1980",
+            "number_of_players": "2",
+            "duration": 15,
+            "age_rec": 6
+        }
+    },
+    {
+        "model": "gameraterapi.game",
+        "pk": 3,
+        "fields": {
+            "title": "Risk",
+            "description": "world domination game",
+            "designer": "Albert",
+            "year_released": 1960,
+            "number_of_players": 6,
+            "duration": 60,
+            "age_rec": 8
+        }
+    }
+]

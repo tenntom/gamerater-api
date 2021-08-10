@@ -1,0 +1,37 @@
+[
+    {
+        "model": "gameraterapi.category",
+        "pk": 1,
+        "fields": {
+            "label": "Board game"
+        }
+    },
+    {
+        "model": "gameraterapi.category",
+        "pk": 2,
+        "fields": {
+            "label": "Role-playing game"
+        }
+    },
+    {
+        "model": "gameraterapi.category",
+        "pk": 3,
+        "fields": {
+            "label": "Video game"
+        }
+    },
+    {
+        "model": "gameraterapi.category",
+        "pk": 4,
+        "fields": {
+            "label": "Sci-Fi"
+        }
+    },
+    {
+        "model": "gameraterapi.category",
+        "pk": 5,
+        "fields": {
+            "label": "Fantasy"
+        }
+    }
+]

@@ -11,6 +11,12 @@
             "driver": "SQLite",
             "name": "Levelup",
             "database": "./db.sqlite3"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Game Rater Database",
+            "database": "db.sqlite3"
         }
     ]
 }
