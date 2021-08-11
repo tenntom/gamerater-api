@@ -8,6 +8,7 @@ class Game(models.Model):
     number_of_players = models.IntegerField()
     duration = models.IntegerField()
     age_rec = models.IntegerField()
+    categories = models.ManyToManyField("Category", through="GameCategory", related_name="attending")
 
 
 
