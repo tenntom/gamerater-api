@@ -1,1 +1,1 @@
-DROP TABLE gameraterapi_rating
+SELECT * FROM gameraterapi_game
