@@ -1,0 +1,18 @@
+[
+    {
+        "model": "gameraterapi.player",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "Steve"
+        }
+    },
+    {
+        "model": "gameraterapi.player",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "bio": "Tom"
+        }
+    }
+]

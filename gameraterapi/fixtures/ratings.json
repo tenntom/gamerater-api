@@ -1,0 +1,38 @@
+[
+    {
+        "model": "gameraterapi.rating",
+        "pk": 1,
+        "fields": {
+            "game": 1,
+            "player": 2,
+            "stars": 4
+        }
+    },
+    {
+        "model": "gameraterapi.rating",
+        "pk": 2,
+        "fields": {
+            "game": 3,
+            "player": 1,
+            "stars": 3
+        }
+    },
+    {
+        "model": "gameraterapi.rating",
+        "pk": 3,
+        "fields": {
+            "game": 2,
+            "player": 2,
+            "stars": 5
+        }
+    },
+    {
+        "model": "gameraterapi.rating",
+        "pk": 4,
+        "fields": {
+            "game": 1,
+            "player": 1,
+            "stars": 2
+        }
+    }
+]

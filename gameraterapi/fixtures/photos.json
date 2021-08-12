@@ -1,0 +1,32 @@
+[
+    {
+        "model": "gameraterapi.photo",
+        "pk": 1,
+        "fields": {
+            "image_url": "https://st2.depositphotos.com/3864575/5816/i/950/depositphotos_58167541-stock-photo-monopoly-board-game-in-play.jpg",
+            "caption": "The famous capitalist board game",
+            "game": 1,
+            "player": 2
+        }
+    },
+    {
+        "model": "gameraterapi.photo",
+        "pk": 2,
+        "fields": {
+            "image_url": "https://thereader.mitpress.mit.edu/wp-content/uploads/2020/11/pacman-lead-graphic-700x420.jpg",
+            "caption": "Pacman be eating",
+            "game": 2,
+            "player": 1
+        }
+    },
+    {
+        "model": "gameraterapi.photo",
+        "pk": 3,
+        "fields": {
+            "image_url": "https://m.media-amazon.com/images/I/91jsvpbPP3L._AC_SX425_.jpg",
+            "caption": "The strategic game box",
+            "game": 3,
+            "player": 2
+        }
+    }
+]

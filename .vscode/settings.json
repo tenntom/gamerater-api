@@ -9,8 +9,8 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "name": "Levelup",
-            "database": "./db.sqlite3"
+            "name": "GameRater Database",
+            "database": "db.sqlite3"
         }
     ]
 }
