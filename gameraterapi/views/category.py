@@ -1,5 +1,5 @@
 """View module for handling requests about games"""
-from gameraterapi.models import player
+from gameraterapi.models import category, player
 from gameraterapi.models.player import Player
 from django.core.exceptions import ValidationError
 from rest_framework import status
@@ -28,22 +28,14 @@ class CategoryView(ViewSet):
         # and set its properties from what was sent in the
         # body of the request from the client.
         category = Category()
-        game.title = request.data["title"]
-        game.description = request.data["description"]
-        game.designer = request.data["designer"]
-        game.year_released = request.data["year_released"]
-        game.number_of_players = request.data["number_of_players"]
-        game.duration = request.data["duration"]
-        game.age_rec = request.data["age_rec"]
-        game.categories = request.data
-
+        category.label = request.data["label"]
 
         # Try to save the new game to the database, then
         # serialize the game instance as JSON, and send the
         # JSON as a response to the client request
         try:
-            game.save()
-            serializer = GameSerializer(game, context={'request': request})
+            category.save()
+            serializer = CategorySerializer(category, context={'request': request})
             return Response(serializer.data)
 
         # If anything went wrong, catch the exception and
@@ -64,57 +56,57 @@ class CategoryView(ViewSet):
             #   http://localhost:8000/games/2
             #
             # The `2` at the end of the route becomes `pk`
-            game = Game.objects.get(pk=pk)
-            serializer = GameSerializer(game, context={'request': request})
+            category = Category.objects.get(pk=pk)
+            serializer = CategorySerializer(category, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
 
-    def update(self, request, pk=None):
-        """Handle PUT requests for a game
+    # def update(self, request, pk=None):
+    #     """Handle PUT requests for a game
 
-        Returns:
-            Response -- Empty body with 204 status code
-        """
-        player = Player.objects.get(user=request.auth.user)
+    #     Returns:
+    #         Response -- Empty body with 204 status code
+    #     """
+    #     player = Player.objects.get(user=request.auth.user)
 
-        # Do mostly the same thing as POST, but instead of
-        # creating a new instance of Game, get the game record
-        # from the database whose primary key is `pk`
+    #     # Do mostly the same thing as POST, but instead of
+    #     # creating a new instance of Game, get the game record
+    #     # from the database whose primary key is `pk`
 
-        game = Game.objects.get(pk=pk)
+    #     game = Game.objects.get(pk=pk)
 
-        game.title = request.data["title"]
-        game.description = request.data["description"]
-        game.designer = request.data["designer"]
-        game.year_released = request.data["year_released"]
-        game.number_of_players = request.data["number_of_players"]
-        game.duration = request.data["duration"]
-        game.age_rec = request.data["age_rec"]
+    #     game.title = request.data["title"]
+    #     game.description = request.data["description"]
+    #     game.designer = request.data["designer"]
+    #     game.year_released = request.data["year_released"]
+    #     game.number_of_players = request.data["number_of_players"]
+    #     game.duration = request.data["duration"]
+    #     game.age_rec = request.data["age_rec"]
 
-        game.save()
+    #     game.save()
 
-        # 204 status code means everything worked but the
-        # server is not sending back any data in the response
-        return Response({}, status=status.HTTP_204_NO_CONTENT)
+    #     # 204 status code means everything worked but the
+    #     # server is not sending back any data in the response
+    #     return Response({}, status=status.HTTP_204_NO_CONTENT)
 
-    def destroy(self, request, pk=None):
-        """Handle DELETE requests for a single game
+    # def destroy(self, request, pk=None):
+    #     """Handle DELETE requests for a single game
 
-        Returns:
-            Response -- 200, 404, or 500 status code
-        """
-        try:
-            game = Game.objects.get(pk=pk)
-            game.delete()
+    #     Returns:
+    #         Response -- 200, 404, or 500 status code
+    #     """
+    #     try:
+    #         game = Game.objects.get(pk=pk)
+    #         game.delete()
 
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
+    #         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
-        except Game.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+    #     except Game.DoesNotExist as ex:
+    #         return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
-        except Exception as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    #     except Exception as ex:
+    #         return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def list(self, request):
         """Handle GET requests to games resource
